@@ -1,6 +1,6 @@
 {
   "name": "crypto-volume",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Get last 24 hours trade volume of all pairs.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

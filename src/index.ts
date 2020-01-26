@@ -6,6 +6,8 @@ import getVolumeNewdex from './exchanges/newdex';
 import getVolumeWhaleEx from './exchanges/whaleex';
 import { Volume } from './pojo/volume';
 
+export { Volume } from './pojo/volume';
+
 /**
  * Get last 24 hours trade volume of all pairs.
  *
