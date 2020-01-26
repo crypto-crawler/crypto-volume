@@ -5,7 +5,7 @@ Get last 24 hours trade volume of a cryptocurrency.
 ## Quick start
 
 ```bash
-npx crypto-volume --help
+npx crypto-volume Binance
 ```
 
 ## How to use
@@ -15,7 +15,7 @@ npx crypto-volume --help
 const getVolume = require('crypto-volume').default;
 
 (async () => {
-  console.info(getVolume('Binance'));
+  console.info(await getVolume('Binance'));
 })();
 ```
 
