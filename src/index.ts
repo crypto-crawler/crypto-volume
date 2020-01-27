@@ -1,6 +1,7 @@
 import { strict as assert } from 'assert';
 import getVolumeBinance from './exchanges/binance';
 import getVolumeBitfinex from './exchanges/bitfinex';
+import getVolumeBitstamp from './exchanges/bitstamp';
 import getVolumeHuobi from './exchanges/huobi';
 import getVolumeNewdex from './exchanges/newdex';
 import getVolumeWhaleEx from './exchanges/whaleex';
@@ -23,6 +24,9 @@ export default async function getVolume(exchange: string): Promise<{ [key: strin
     }
     case 'Bitfinex': {
       return getVolumeBitfinex();
+    }
+    case 'Bitstamp': {
+      return getVolumeBitstamp();
     }
     case 'Huobi': {
       return getVolumeHuobi();

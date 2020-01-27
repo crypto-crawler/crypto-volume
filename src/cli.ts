@@ -3,7 +3,7 @@
 import yargs from 'yargs';
 import getVolume from './index';
 
-const EXCHANGES = ['Binance', 'Bitfinex', 'Huobi', 'Newdex', 'WhaleEx'];
+const EXCHANGES = ['Binance', 'Bitfinex', 'Bitstamp', 'Huobi', 'Newdex', 'WhaleEx'];
 
 const { argv } = yargs
   // eslint-disable-next-line no-shadow
