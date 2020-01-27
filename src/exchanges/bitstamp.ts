@@ -2,23 +2,15 @@ import { strict as assert } from 'assert';
 import Axios from 'axios';
 import { Volume } from '../pojo/volume';
 
-const ALL_PAIRS = [
-  'BCH_BTC',
-  'BCH_EUR',
-  'BCH_USD',
-  'BTC_EUR',
-  'BTC_USD',
-  'ETH_BTC',
-  'ETH_EUR',
-  'ETH_USD',
-  'EUR_USD',
-  'LTC_BTC',
-  'LTC_EUR',
-  'LTC_USD',
-  'XRP_BTC',
-  'XRP_EUR',
-  'XRP_USD',
-];
+interface PairInfo {
+  base_decimals: number;
+  minimum_order: string;
+  name: string;
+  counter_decimals: number;
+  trading: string;
+  url_symbol: string;
+  description: string;
+}
 
 interface Ticker {
   high: string;
@@ -33,6 +25,11 @@ interface Ticker {
 }
 
 export default async function getVolume(): Promise<{ [key: string]: Volume }> {
+  const pairsResponse = await Axios.get('https://www.bitstamp.net/api/v2/trading-pairs-info/');
+  assert.equal(pairsResponse.status, 200);
+
+  const ALL_PAIRS = (pairsResponse.data as PairInfo[]).map(x => x.name.replace('/', '_'));
+
   const requests = ALL_PAIRS.map(pair =>
     Axios.get(
       `https://www.bitstamp.net/api/v2/ticker/${pair.toLocaleLowerCase().replace(/_/, '')}/`,
