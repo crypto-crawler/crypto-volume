@@ -1,6 +1,6 @@
 {
   "name": "crypto-volume",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Get last 24 hours trade volume of all pairs.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -34,12 +34,12 @@
   "homepage": "https://github.com/soulmachine/crypto-volume",
   "devDependencies": {
     "@types/node": "^13.5.0",
-    "@types/yargs": "^15.0.1",
-    "@typescript-eslint/eslint-plugin": "^2.17.0",
-    "@typescript-eslint/parser": "^2.17.0",
+    "@types/yargs": "^15.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jest": "^23.6.0",
     "eslint-plugin-markdown": "^1.0.1",
@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "crypto-pair": "0.0.5",
+    "crypto-pair": "0.0.6",
     "yargs": "^15.1.0"
   }
 }

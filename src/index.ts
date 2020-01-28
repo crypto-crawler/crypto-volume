@@ -4,6 +4,7 @@ import getVolumeBitfinex from './exchanges/bitfinex';
 import getVolumeBitstamp from './exchanges/bitstamp';
 import getVolumeCoinbase from './exchanges/coinbase';
 import getVolumeHuobi from './exchanges/huobi';
+import getVolumeKraken from './exchanges/kraken';
 import getVolumeNewdex from './exchanges/newdex';
 import getVolumeWhaleEx from './exchanges/whaleex';
 import { Volume } from './pojo/volume';
@@ -34,6 +35,9 @@ export default async function getVolume(exchange: string): Promise<{ [key: strin
     }
     case 'Huobi': {
       return getVolumeHuobi();
+    }
+    case 'Kraken': {
+      return getVolumeKraken();
     }
     case 'Newdex': {
       return getVolumeNewdex();
