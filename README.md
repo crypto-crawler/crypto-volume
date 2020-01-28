@@ -1,6 +1,6 @@
 # crypto-volume
 
-Get last 24 hours trade volume of a cryptocurrency.
+Get last 24 hours trade volume of all pairs.
 
 ## Quick start
 
