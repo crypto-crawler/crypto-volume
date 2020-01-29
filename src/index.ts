@@ -7,6 +7,7 @@ import getVolumeHuobi from './exchanges/huobi';
 import getVolumeKraken from './exchanges/kraken';
 import getVolumeMXC from './exchanges/mxc';
 import getVolumeNewdex from './exchanges/newdex';
+import getVolumeOKEx_Spot from './exchanges/okex_spot';
 import getVolumeWhaleEx from './exchanges/whaleex';
 import { Volume } from './pojo/volume';
 
@@ -45,6 +46,9 @@ export default async function getVolume(exchange: string): Promise<{ [key: strin
     }
     case 'Newdex': {
       return getVolumeNewdex();
+    }
+    case 'OKEx_Spot': {
+      return getVolumeOKEx_Spot();
     }
     case 'WhaleEx': {
       return getVolumeWhaleEx();

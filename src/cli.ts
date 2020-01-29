@@ -12,6 +12,7 @@ const EXCHANGES = [
   'Kraken',
   'MXC',
   'Newdex',
+  'OKEx_Spot',
   'WhaleEx',
 ];
 
