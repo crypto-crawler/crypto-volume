@@ -1,5 +1,6 @@
 import { strict as assert } from 'assert';
 import Axios from 'axios';
+import normalize from 'crypto-pair';
 import { Volume } from '../pojo/volume';
 
 interface Ticker24hr {
@@ -30,7 +31,8 @@ export default async function getVolume(): Promise<{ [key: string]: Volume }> {
 
   const result: { [key: string]: Volume } = {};
   data.forEach(x => {
-    const normalizedPair = x.product_id.replace(/-/, '_');
+    const normalizedPair = normalize(x.product_id, 'OKEx_Spot');
+    assert.equal(normalizedPair, x.product_id.replace(/-/, '_'));
 
     result[normalizedPair] = {
       baseVolume: parseFloat(x.base_volume_24h),
