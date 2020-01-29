@@ -10,6 +10,7 @@ const EXCHANGES = [
   'Coinbase',
   'Huobi',
   'Kraken',
+  'MXC',
   'Newdex',
   'WhaleEx',
 ];
