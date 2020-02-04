@@ -20,7 +20,7 @@ export default async function getVolume(): Promise<{ [key: string]: Volume }> {
   assert.equal(response.status, 200);
   assert.equal(response.data.status, 'ok');
 
-  const data = response.data.data as Ticker24hr[];
+  const data = (response.data.data as Ticker24hr[]).filter(x => x.amount > 0 && x.vol > 0);
 
   const result: { [key: string]: Volume } = {};
   data.forEach(x => {
