@@ -1,6 +1,6 @@
 import { strict as assert } from 'assert';
 import Axios from 'axios';
-import normalize from 'crypto-pair';
+import { normalizePair } from 'crypto-pair';
 import { Volume } from '../pojo/volume';
 
 interface Ticker24hr {
@@ -24,8 +24,8 @@ export default async function get24hrVolume(): Promise<{ [key: string]: Volume }
   const data = response.data.data as Ticker24hr[];
 
   const result: { [key: string]: Volume } = {};
-  data.forEach(x => {
-    const normalizedPair = normalize(x.symbol, 'Newdex');
+  data.forEach((x) => {
+    const normalizedPair = normalizePair(x.symbol, 'Newdex');
 
     result[normalizedPair] = {
       baseVolume: x.amount,

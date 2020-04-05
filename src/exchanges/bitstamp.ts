@@ -18,9 +18,9 @@ export default async function getVolume(): Promise<{ [key: string]: Volume }> {
   const pairsResponse = await Axios.get('https://www.bitstamp.net/api/v2/trading-pairs-info/');
   assert.equal(pairsResponse.status, 200);
 
-  const ALL_PAIRS = (pairsResponse.data as { name: string }[]).map(x => x.name.replace('/', '_'));
+  const ALL_PAIRS = (pairsResponse.data as { name: string }[]).map((x) => x.name.replace('/', '_'));
 
-  const requests = ALL_PAIRS.map(pair =>
+  const requests = ALL_PAIRS.map((pair) =>
     Axios.get(
       `https://www.bitstamp.net/api/v2/ticker/${pair.toLocaleLowerCase().replace(/_/, '')}/`,
     ),

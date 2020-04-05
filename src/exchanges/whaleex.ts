@@ -1,6 +1,6 @@
 import { strict as assert } from 'assert';
 import Axios from 'axios';
-import normalize from 'crypto-pair';
+import { normalizePair } from 'crypto-pair';
 import { Volume } from '../pojo/volume';
 
 interface SymbolInfo {
@@ -23,8 +23,8 @@ export default async function getVolume(): Promise<{ [key: string]: Volume }> {
 
   const arr = response.data as Array<SymbolInfo>;
 
-  arr.forEach(x => {
-    const normalizedPair = normalize(x.name, 'WhaleEx');
+  arr.forEach((x) => {
+    const normalizedPair = normalizePair(x.name, 'WhaleEx');
 
     result[normalizedPair] = {
       baseVolume: parseFloat(x.baseVolume),

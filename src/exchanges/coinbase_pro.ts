@@ -1,6 +1,6 @@
 import { strict as assert } from 'assert';
 import Axios from 'axios';
-import normalize from 'crypto-pair';
+import { normalizePair } from 'crypto-pair';
 import { Volume } from '../pojo/volume';
 
 interface Ticker {
@@ -26,8 +26,8 @@ export default async function getVolume(): Promise<{ [key: string]: Volume }> {
 
   const result: { [key: string]: Volume } = {};
 
-  Object.keys(stats).forEach(productId => {
-    const pair = normalize(productId, 'Coinbase');
+  Object.keys(stats).forEach((productId) => {
+    const pair = normalizePair(productId, 'CoinbasePro');
     assert.equal(pair, productId.replace(/-/, '_'));
     const ticker = stats[productId].stats_24hour;
 

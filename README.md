@@ -14,7 +14,7 @@ npx crypto-volume Binance
 /* eslint-disable import/no-unresolved,no-console */
 const getVolume = require('crypto-volume').default;
 
-(async () => {
+(async (): Promise<void> => {
   console.info(await getVolume('Binance'));
 })();
 ```

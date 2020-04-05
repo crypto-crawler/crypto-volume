@@ -2,12 +2,12 @@ import { strict as assert } from 'assert';
 import getVolumeBinance from './exchanges/binance';
 import getVolumeBitfinex from './exchanges/bitfinex';
 import getVolumeBitstamp from './exchanges/bitstamp';
-import getVolumeCoinbase from './exchanges/coinbase';
+import getVolumeCoinbasePro from './exchanges/coinbase_pro';
 import getVolumeHuobi from './exchanges/huobi';
 import getVolumeKraken from './exchanges/kraken';
 import getVolumeMXC from './exchanges/mxc';
 import getVolumeNewdex from './exchanges/newdex';
-import getVolumeOKEx_Spot from './exchanges/okex_spot';
+import getVolumeOKEx from './exchanges/okex';
 import getVolumeWhaleEx from './exchanges/whaleex';
 import { Volume } from './pojo/volume';
 
@@ -32,8 +32,8 @@ export default async function getVolume(exchange: string): Promise<{ [key: strin
     case 'Bitstamp': {
       return getVolumeBitstamp();
     }
-    case 'Coinbase': {
-      return getVolumeCoinbase();
+    case 'CoinbasePro': {
+      return getVolumeCoinbasePro();
     }
     case 'Huobi': {
       return getVolumeHuobi();
@@ -47,8 +47,8 @@ export default async function getVolume(exchange: string): Promise<{ [key: strin
     case 'Newdex': {
       return getVolumeNewdex();
     }
-    case 'OKEx_Spot': {
-      return getVolumeOKEx_Spot();
+    case 'OKEx': {
+      return getVolumeOKEx();
     }
     case 'WhaleEx': {
       return getVolumeWhaleEx();
